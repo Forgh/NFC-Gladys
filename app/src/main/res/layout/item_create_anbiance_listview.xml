@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/vertical_layout"
+    android:weightSum="1">
+
+
+    <TextView
+        android:id="@+id/item_name_module"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="2"
+        android:gravity="center_vertical"
+        android:hint="@string/atom_nameHint"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <ImageButton
+        android:id="@+id/item_remove_img"
+        android:layout_width="@dimen/width_button"
+        android:layout_height="fill_parent"
+        android:contentDescription="@string/app_name"
+        android:onClick="removeAtomPayOnClickHandler"
+        android:src="@android:drawable/ic_menu_delete" />
+  <!--  <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:id="@+id/buttonDeleteModule" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="-"
+            android:textSize="50px"
+            android:id="@+id/tViewItemCreateAmbiance" />
+    </LinearLayout>
+    -->
+
+    <!-- Partie Lumiere -->
+    <!--<LinearLayout
+        android:id="@+id/vertical_layout_hidden_light"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Color:"
+                android:id="@+id/textView" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/eTextLightColor"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBar"
+            android:progress="80"
+            android:max="100"
+            android:indeterminate="@bool/abc_action_bar_embed_tabs" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Auto"
+            android:id="@+id/checkBoxLightAuto"
+            android:checked="false" />
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/switch_light"
+            android:textOff="TurnOff"
+            android:textOn="TurnOn"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:checked="@bool/abc_action_bar_embed_tabs" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="back"
+                android:layout_weight="1"
+                android:id="@+id/buttonLightBackCreateAmbiance" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="newt"
+                android:layout_weight="1"
+                android:id="@+id/buttonLightNextCreateAmbiance" />
+        </LinearLayout>
+    </LinearLayout>-->
+
+
+    <!-- Partie Musique -->
+    <!--<LinearLayout
+        android:id="@+id/vertical_layout_hidden_music"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="music tracks:"
+                android:id="@+id/tViewMusicTracks" />
+            <Spinner
+                android:id="@+id/spinner1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/song_arrays"
+                android:prompt="@string/song_prompt" />
+        </LinearLayout>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="play"
+            android:id="@+id/checkBoxMusicPlay"
+            android:checked="false" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="stop"
+            android:checked="false"
+            android:id="@+id/checkBoxMusicStop" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Auto"
+            android:id="@+id/checkBoxMusicAuto"
+            android:checked="false" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="back"
+                android:layout_weight="1"
+                android:id="@+id/buttonMusicBackCreateAmbiance" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="newt"
+                android:layout_weight="1"
+                android:id="@+id/buttonMusicNextCreateAmbiance" />
+        </LinearLayout>
+    </LinearLayout>-->
+
+
+
+    <!-- Partie Alarm -->
+    <!--<LinearLayout
+        android:id="@+id/vertical_layout_hidden_alarm"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Song:"
+                android:id="@+id/tViewAlarmSong" />
+            <Spinner
+                android:id="@+id/spinnerAlarm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/song_arrays"
+                android:prompt="@string/song_prompt" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Time"
+                android:id="@+id/checkBoxAlarmHeure"
+                android:checked="false" />
+
+            <TimePicker
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/timePicker" />
+        </LinearLayout>
+
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="play"
+            android:id="@+id/checkBoxAlarmPlay"
+            android:checked="false" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="stop"
+            android:checked="false"
+            android:id="@+id/checkBoxAlarmStop" />
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="back"
+                android:layout_weight="1"
+                android:id="@+id/buttonAlarmBackCreateAmbiance" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="newt"
+                android:layout_weight="1"
+                android:id="@+id/buttonAlarmNextCreateAmbiance" />
+        </LinearLayout>
+    </LinearLayout>-->
+
+</LinearLayout>

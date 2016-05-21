@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1">
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Color"
+            android:id="@+id/buttonSelectColor" />
+
+
+    <!--
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TurnOn"
+            android:id="@+id/checkBoxLightTurnOn"
+            android:checked="false" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TurnOff"
+            android:checked="false"
+            android:id="@+id/checkBoxLightTurnOff" />
+    -->
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBarLight"
+            android:progress="80"
+            android:max="100"
+            android:indeterminate="@bool/abc_action_bar_embed_tabs" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Auto"
+            android:id="@+id/checkBoxLightAuto"
+            android:checked="false" />
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/switch_light"
+            android:textOff="TurnOff"
+            android:textOn="TurnOn"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:checked="@bool/abc_action_bar_embed_tabs" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="back"
+                android:layout_weight="1"
+                android:id="@+id/buttonLightBackCreateAmbiance" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="next"
+                android:layout_weight="1"
+                android:id="@+id/buttonLightNextCreateAmbiance" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

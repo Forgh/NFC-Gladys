@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NFC-Gladys</string>
+    <string name="explanation">Tag NFC détecté !</string>
+    <string name="song_prompt">Choisissez une musique</string>
+    <string name="nfc_disabled">Le NFC est désactivé</string>
+    <string name="unsupported_nfc">Cet appareil ne supporte pas la NFC</string>
+</resources>

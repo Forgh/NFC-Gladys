@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Nom :"
+            android:id="@+id/tViewNomAmbiance" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:id="@+id/eTextNomAmbiance"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="3px"
+        android:background="#FF909090" />
+    <Button
+        android:id="@+id/buttonAddModule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/buttonAddModule"
+        android:drawableLeft="@android:drawable/ic_input_add" />
+
+    <ListView
+        android:id="@+id/lViewAmbiance"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/item_create_anbiance_listview"
+        android:layout_below="@+id/EnterPays_addAtomPayment" >
+
+    </ListView>
+
+    <!--<Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add new Module"
+        android:id="@+id/buttonAddModule"
+        android:layout_gravity="center_horizontal" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lViewCreateAmbiance"
+        android:layout_weight="1" />
+    -->
+        <!--android:layout_weight="1"-->
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="back"
+            android:layout_gravity="bottom"
+            android:layout_weight="0"
+
+            android:id="@+id/buttonBack"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="save and quit"
+            android:layout_gravity="bottom"
+            android:layout_weight="01"
+            android:id="@+id/buttonSaveAndQuit"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="whrite"
+            android:layout_gravity="bottom"
+            android:layout_weight="0"
+
+            android:id="@+id/buttonSaveAndWrite" />
+    </LinearLayout>
+
+</LinearLayout>

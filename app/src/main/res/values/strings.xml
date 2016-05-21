@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">NFC-Gladys</string>
+    <string name="song_prompt">Choose a song</string>
+    <string name="title_create_ambiance_activity">Create Ambience</string>
+    <string name="atom_nameHint">no data</string>
+    <string name="buttonAddModule">Add new module</string>
+    <string name="menu_settings">Settings</string>
+
+
+
+
+    <string-array name="song_arrays">
+        <item>Act a fool</item>
+        <item>Will.i.am</item>
+        <item>Bref</item>
+        <item>COUP DETAT (Feat. Diplo and Baauer)</item>
+        <item>Who You?</item>
+        <item>Niliria (Feat. Missy Elliott) - Missy Elliott ver.</item>
+        <item>Black (Feat. Sky Ferreira)</item>
+        <item>India</item>
+    </string-array>
+    <string name="explanation">NFC tag detected!</string>
+    <string name="nfc_disabled">NFC is disabled.</string>
+    <string name="unsupported_nfc">This device does not support NFC</string>
+</resources>
