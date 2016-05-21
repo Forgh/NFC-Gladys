@@ -12,7 +12,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="150px"
-        android:text="Create ambiance"
+        android:text="@string/CreateAmbiance"
         android:id="@+id/buttonCreateAmbiance"
         android:layout_marginTop="89dp"
         android:layout_alignParentTop="true"
@@ -22,7 +22,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="150px"
-        android:text="Write Tag"
+        android:text="@string/WriteTag"
         android:id="@+id/buttonWriteTag"
         android:layout_below="@+id/buttonCreateAmbiance"
         android:layout_alignParentLeft="true"
@@ -31,7 +31,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="150px"
-        android:text="Read Tag"
+        android:text="@string/ReadTag"
         android:id="@+id/buttonReadTag"
         android:layout_below="@+id/buttonWriteTag"
         android:layout_alignParentLeft="true"

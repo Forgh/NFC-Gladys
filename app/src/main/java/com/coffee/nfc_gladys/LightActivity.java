@@ -121,14 +121,14 @@ public class LightActivity extends AppCompatActivity {
 
                 ColorPickerDialogBuilder
                         .with(context)
-                        .setTitle("Choose color")
+                        .setTitle(""+R.string.ChooseColor)
                         .initialColor(currentBackgroundColor)
                         .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
                         .density(12)
                         .setOnColorSelectedListener(new OnColorSelectedListener() {
                             @Override
                             public void onColorSelected(int selectedColor) {
-                                toast("onColorSelected: 0x" + Integer.toHexString(selectedColor));
+                                toast(R.string.OnColorSelected+": 0x" + Integer.toHexString(selectedColor));
                                 str_color=""+Integer.toHexString(selectedColor).toUpperCase();
                             }
                         })
@@ -143,7 +143,7 @@ public class LightActivity extends AppCompatActivity {
                                         if (color == null)
                                             continue;
                                         if (sb == null)
-                                            sb = new StringBuilder("Color List:");
+                                            sb = new StringBuilder(R.string.ColorList+":");
                                         sb.append("\r\n#" + Integer.toHexString(color).toUpperCase());
                                     }
 
@@ -152,7 +152,7 @@ public class LightActivity extends AppCompatActivity {
                                 }
                             }
                         })
-                        .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                        .setNegativeButton(""+R.string.Cancel, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                             }

@@ -1,5 +1,7 @@
 package com.coffee.nfc_gladys.PartieMetier;
 
+import com.coffee.nfc_gladys.R;
+
 /**
  * Created by ghost_000 on 25/04/2016.
  */
@@ -72,10 +74,10 @@ public class Light extends Module {
         String ret = "";
         switch (split[0]){
             case "004":
-                ret = "Color=#<font color=#"+split[1]+">"+split[1]+"</font>";
+                ret = R.string.LightColor+"=#<font color=#"+split[1]+">"+split[1]+"</font>";
                 break;
             case "005":
-                ret = "Brightness="+split[1];;
+                ret =  R.string.LightBrightness+"="+split[1];;
                 break;
             default:
                 ret = code; break;

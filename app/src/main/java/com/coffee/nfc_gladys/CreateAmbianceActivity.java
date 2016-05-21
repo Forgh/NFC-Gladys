@@ -130,10 +130,10 @@ public class CreateAmbianceActivity extends AppCompatActivity {
     private void displayListModuleDialog() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Select module");
+        builder.setTitle(""+R.string.SelectModule);
 
         ListView modeList = new ListView(this);
-        String[] stringArray = new String[] { "Light", "Music", "Alarm" };
+        String[] stringArray = new String[] { ""+R.string.Light, ""+R.string.Music, ""+R.string.Alarm };
         ArrayAdapter<String> modeAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, stringArray);
         modeList.setAdapter(modeAdapter);
 
@@ -178,7 +178,7 @@ public class CreateAmbianceActivity extends AppCompatActivity {
                 modules.add(ms);
                 adapter.insert(ms_translate, 0);
             } else
-                System.err.println("Cannot save this module");
+                System.err.println(""+R.string.CreateAmbiancce_CannotSaveModule);
         }
     }
 
@@ -271,7 +271,7 @@ public class CreateAmbianceActivity extends AppCompatActivity {
             if (writeTag(message, detectedTag)) {
                 intent = new Intent(CreateAmbianceActivity.this, MainActivity.class);
                 startActivity(intent);
-                Toast.makeText(this, "Success: Wrote placeid to nfc tag", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, ""+R.string.SuccessWrote, Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -297,11 +297,11 @@ public class CreateAmbianceActivity extends AppCompatActivity {
             if (ndef != null) {
                 ndef.connect();
                 if (!ndef.isWritable()) {
-                    Toast.makeText(getApplicationContext(), "Error: tag not writable", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), ""+R.string.ErrTagNotWritable, Toast.LENGTH_SHORT).show();
                     return false;
                 }
                 if (ndef.getMaxSize() < size) {
-                    Toast.makeText(getApplicationContext(), "Error: tag too small", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), ""+R.string.ErrTagTooSmall, Toast.LENGTH_SHORT).show();
                     return false;
                 }
                 ndef.writeNdefMessage(message);

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NFC-Gladys</string>
+    <string name="explanation">NFC tag detected !</string>
+    <string name="song_prompt">Choice a music</string>
+    <!--<string name="nfc_disabled">Le NFC est désactivé</string>-->
+    <string name="unsupported_nfc">This device does not support NFC tag.</string>
+    <string name="StopAlarm">Stop alarm</string>
+    <string name="LightColor">Color</string>
+    <string name="LightBrightness">Brightness</string>
+    <string name="MusicPlay">Play</string>
+    <string name="MusicPause">Pause</string>
+    <string name="MusicStop">Stop</string>
+    <string name="AlarmStop">Stop</string>
+    <string name="AlarmPlay">Play</string>
+    <string name="SelectModule">Select module</string>
+    <string name="Light">Light</string>
+    <string name="Music">Music</string>
+    <string name="Alarm">Alarm</string>
+    <string name="CreateAmbiancce_CannotSaveModule">Cannot save this module</string>
+    <string name="SuccessWrote">Success: Wrote placeid to nfc tag</string>
+    <string name="ErrTagNotWritable">Error: tag not writable</string>
+    <string name="ErrTagTooSmall">Error: tag too small</string>
+    <string name="ChooseColor">Choose color</string>
+    <string name="OnColorSelected">onColorSelected</string>
+    <string name="ColorList">Color List</string>
+    <string name="Cancel">cancel</string>
+    <string name="CreateAmbiance">Create ambiance</string>
+    <string name="WriteTag">Write Tag</string>
+    <string name="ReadTag">Read Tag</string>
+    <string name="AlarmSong">Song :</string>
+    <string name="AlarmTime">Time</string>
+    <string name="Back">back</string>
+    <string name="Next">next</string>
+    <string name="AmbianceTitle">Title</string>
+    <string name="Close">close</string>
+    <string name="IpAddress">Ip address :</string>
+    <string name="Email">E-mail :</string>
+    <string name="Password">Password :</string>
+
+</resources>

@@ -19,7 +19,7 @@ public class AlarmActivity extends AppCompatActivity {
     Button button_back;
     Button button_next;
     RadioButton stop;
-    RadioButton play;
+    //RadioButton play;
     Alarm alarm;
     String str_code;
 
@@ -53,7 +53,7 @@ public class AlarmActivity extends AppCompatActivity {
         public void onClick(View v) {
             /*il faudra mettre des parametres*/
             alarm = new Alarm();
-            str_code=alarm.outputToNFCTagString((stop.isChecked()?"stopAlarm": "Alarm"))+";";
+            str_code=alarm.outputToNFCTagString((stop.isChecked()?""+R.string.AlarmStop: "playAlarm"))+";";
             finish();
         }
     };

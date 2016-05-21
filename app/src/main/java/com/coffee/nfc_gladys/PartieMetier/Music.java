@@ -1,5 +1,7 @@
 package com.coffee.nfc_gladys.PartieMetier;
 
+import com.coffee.nfc_gladys.R;
+
 /**
  * Created by ghost_000 on 25/04/2016.
  */
@@ -23,13 +25,13 @@ public class Music extends Module{
         String ret = "";
         switch (split[0]){
             case "001":
-                ret = "Play";
+                ret = ""+ R.string.MusicPlay;
                 break;
             case "002":
-                ret = "Pause";;
+                ret = ""+ R.string.MusicPause;;
                 break;
             case "003":
-                ret = "Stop";
+                ret = ""+ R.string.MusicStop;
                 break;
             default:
                 ret = code; break;

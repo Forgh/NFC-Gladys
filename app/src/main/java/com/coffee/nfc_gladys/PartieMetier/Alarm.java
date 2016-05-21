@@ -1,5 +1,7 @@
 package com.coffee.nfc_gladys.PartieMetier;
 
+import com.coffee.nfc_gladys.R;
+
 /**
  * Created by ghost_000 on 25/04/2016.
  */
@@ -22,7 +24,7 @@ public class Alarm extends Module{
         String ret = "";
         switch (split[0]){
             case "001":
-                ret = "Stop alarm";
+                ret = ""+R.string.StopAlarm;
                 break;
             default:
                 ret = code; break;

@@ -11,7 +11,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Song:"
+            android:text="@string/AlarmSong"
             android:id="@+id/tViewAlarmSong" />
         <Spinner
             android:id="@+id/spinnerAlarm"
@@ -29,7 +29,7 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Time"
+            android:text="@string/AlarmTime"
             android:id="@+id/checkBoxAlarmHeure"
             android:checked="false" />
 
@@ -46,12 +46,12 @@
         <RadioButton android:id="@+id/radioAlarmPlay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="play"
+            android:text="@string/AlarmPlay"
             android:checked="false"/>
         <RadioButton android:id="@+id/radioAlarmStop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="stop"
+            android:text="@string/AlarmStop"
             android:checked="true"/>
     </RadioGroup>
 
@@ -63,14 +63,14 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="back"
+            android:text="@string/Back"
             android:layout_weight="1"
             android:id="@+id/buttonAlarmBackCreateAmbiance" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="newt"
+            android:text="@string/Next"
             android:layout_weight="1"
             android:id="@+id/buttonAlarmNextCreateAmbiance" />
     </LinearLayout>
