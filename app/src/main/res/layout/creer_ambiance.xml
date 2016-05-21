@@ -82,7 +82,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="save and quit"
+            android:text="Save and Quit"
             android:layout_gravity="bottom"
             android:layout_weight="01"
             android:id="@+id/buttonSaveAndQuit"
@@ -91,7 +91,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="whrite"
+            android:text="Write"
             android:layout_gravity="bottom"
             android:layout_weight="0"
 
