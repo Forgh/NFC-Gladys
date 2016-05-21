@@ -68,6 +68,8 @@
         <activity android:name=".MusicActivity" />
         <activity android:name=".AlarmActivity" />
         <activity android:name=".ListAmbiance" />
+
+        <service android:name=".AuthService" />
     </application>
 
 </manifest>
