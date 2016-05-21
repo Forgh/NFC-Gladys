@@ -20,7 +20,7 @@
         android:theme="@style/AppTheme"
         android:theme="@android:style/Theme.DeviceDefault"
         -->
-        <activity android:name=".Authentification" />
+        <activity android:name=".AuthentificationActivity" />
 
         <activity android:name=".MainActivity" android:label="Accueil">
             <intent-filter>
@@ -39,7 +39,7 @@
         </activity>
 
 
-        <activity android:name=".CreateAmbiance"
+        <activity android:name=".CreateAmbianceActivity"
             android:label="@string/title_create_ambiance_activity"
             android:parentActivityName=".MainActivity"
             >
@@ -49,10 +49,10 @@
         </activity>
 
 
-        <activity android:name=".WriteTag" />
+        <activity android:name=".WriteTagActivity" />
 
 
-        <activity android:name=".ReadTag" >
+        <activity android:name=".ReadTagActivity" >
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
 
@@ -67,7 +67,7 @@
         <activity android:name=".LightActivity" />
         <activity android:name=".MusicActivity" />
         <activity android:name=".AlarmActivity" />
-        <activity android:name=".ListAmbiance" />
+        <activity android:name=".ListAmbianceActivity" />
 
         <service android:name=".AuthService" />
     </application>

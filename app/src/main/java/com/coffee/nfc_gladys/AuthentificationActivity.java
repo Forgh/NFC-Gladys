@@ -9,7 +9,7 @@ import android.widget.Button;
 /**
  * Created by s-setsuna-f on 11/05/16.
  */
-public class Authentification extends AppCompatActivity {
+public class AuthentificationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

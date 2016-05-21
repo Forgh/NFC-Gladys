@@ -27,7 +27,7 @@ import java.util.Arrays;
 /**
  * Created by s-setsuna-f on 12/04/16.
  */
-public class ReadTag extends AppCompatActivity {
+public class ReadTagActivity extends AppCompatActivity {
     private NfcAdapter mNfcAdapter;
     public static final String MIME_TEXT_PLAIN = "text/plain";
     public static final String TAG = "NfcDemo";
@@ -204,17 +204,19 @@ public class ReadTag extends AppCompatActivity {
                     String[] frags;
                     frags = result.split(";");
 
-                    for (String f : frags
-                            ) {
-                        System.out.println("Read content: " + f);
+                    for (final String command : frags) {
+                        System.out.println("Read content: " + command);
+                        new Thread(new Runnable() {
+                            public void run() {
+                                try {
+                                    requester.send(command);
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
 
-                        try {
-                            requester.send(f);
+                            }
+                        }).start();
 
-                        } catch (IOException e) {
-                            e.printStackTrace();
-
-                        }
                     }
                 }
 

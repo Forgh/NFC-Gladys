@@ -1,12 +1,5 @@
 package com.coffee.nfc_gladys;
 
-import java.io.IOException;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.DialogInterface;
@@ -20,88 +13,40 @@ import android.nfc.tech.Ndef;
 import android.nfc.tech.NdefFormatable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.SparseBooleanArray;
-import android.view.Menu;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Toast;
 
-import com.coffee.nfc_gladys.PartieMetier.Ambiance;
-import com.coffee.nfc_gladys.PartieMetier.ModuleSerializable;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.util.Locale;
 
-public class ListAmbiance extends AppCompatActivity {
+/**
+ * Created by s-setsuna-f on 12/04/16.
+ */
+
+
+public class WriteTagActivity extends AppCompatActivity {
+
+    //public static final String MIME_TEXT_PLAIN = "text/plain";
     boolean mWriteMode = false;
     private NfcAdapter mNfcAdapter;
     private PendingIntent mNfcPendingIntent;
     private String msg;
 
-    private List<String> data;
-    SingleListAdapter adapter;
-    ListView lvView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_ambiance);
-        data = new ArrayList<String>();
-        fillData();
-        adapter = new SingleListAdapter(this, data);
-        lvView = (ListView) findViewById(R.id.list);
-        lvView.setAdapter(adapter);
+        mNfcAdapter = NfcAdapter.getDefaultAdapter(WriteTagActivity.this);
+        mNfcPendingIntent = PendingIntent.getActivity(WriteTagActivity.this, 0, new Intent(WriteTagActivity.this, WriteTagActivity.class).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
 
-        Button b = (Button)findViewById(R.id.buttonWriteAmbianceSelected);
-        b.setOnClickListener(write);
-    }
+        enableTagWriteMode();
 
-    public View.OnClickListener write = new View.OnClickListener() {
-        View lv;
-        @Override
-        public void onClick(View v) {
-            final SparseBooleanArray checkedItems = lvView.getCheckedItemPositions();
-
-            if (checkedItems == null) {
-                Toast.makeText(ListAmbiance.this, "No selection info available", Toast.LENGTH_LONG).show();
-                //return;
+        new AlertDialog.Builder(WriteTagActivity.this).setTitle("Tag").setIcon(R.drawable.nfc).setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                disableTagWriteMode();
             }
-            //boolean isFirstSelected = true;
-            final int checkedItemsCount = checkedItems.size();
-            for (int i = 0; i < checkedItemsCount; ++i) {
-                final int position = checkedItems.keyAt(i);
-                final boolean isChecked = checkedItems.valueAt(i);
-                if (isChecked) {
-                    msg = data.get(position);
-                    //setupButtonWriteOnTag();
-                    mNfcAdapter = NfcAdapter.getDefaultAdapter(ListAmbiance.this);
-                    mNfcPendingIntent = PendingIntent.getActivity(ListAmbiance.this, 0, new Intent(ListAmbiance.this, ListAmbiance.class).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
+        }).create().show();
 
-                    enableTagWriteMode();
-
-                    new AlertDialog.Builder(ListAmbiance.this).setTitle("Tag").setIcon(R.drawable.nfc).setOnCancelListener(new DialogInterface.OnCancelListener() {
-                        @Override
-                        public void onCancel(DialogInterface dialog) {
-                            disableTagWriteMode();
-                        }
-                    }).create().show();
-                }
-            }
-
-        }
-    };
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.settings, menu);
-        return true;
-    }
-
-    void fillData() {
-        NfcGladysDataBase db = new NfcGladysDataBase(getBaseContext());
-        ArrayList<Ambiance> dataAmbiance = db.getAllAmbiance();
-        if(dataAmbiance!=null)
-            for(Ambiance a : dataAmbiance)
-                if(a.getCode()!=null)
-                    data.add(a.getCode());
     }
 
     private void enableTagWriteMode() {
@@ -126,8 +71,6 @@ public class ListAmbiance extends AppCompatActivity {
 
             NdefMessage message = new NdefMessage(new NdefRecord[] { record });
             if (writeTag(message, detectedTag)) {
-                intent = new Intent(ListAmbiance.this, MainActivity.class);
-                startActivity(intent);
                 Toast.makeText(this, "Success: Wrote placeid to nfc tag", Toast.LENGTH_LONG).show();
             }
         }
@@ -162,7 +105,7 @@ public class ListAmbiance extends AppCompatActivity {
                     return false;
                 }
                 ndef.writeNdefMessage(message);
-                //System.out.println("PAR LE WRITE");
+                System.out.println("PAR LE WRITE");
                 return true;
             } else {
                 NdefFormatable format = NdefFormatable.get(tag);
@@ -170,7 +113,7 @@ public class ListAmbiance extends AppCompatActivity {
                     try {
                         format.connect();
                         format.format(message);
-                        //System.out.println("PAR LE FORMAT");
+                        System.out.println("PAR LE FORMAT");
                         return true;
                     } catch (IOException e) {
                         return false;

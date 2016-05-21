@@ -51,7 +51,7 @@ public class MusicActivity extends AppCompatActivity {
     public View.OnClickListener BackToCreatAmbiance = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            //Intent intent = new Intent(MusicActivity.this, CreateAmbiance.class);
+            //Intent intent = new Intent(MusicActivity.this, CreateAmbianceActivity.class);
             //startActivity(intent);
             finish();
         }

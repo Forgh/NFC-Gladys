@@ -5,11 +5,9 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Locale;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.PendingIntent;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -37,20 +35,11 @@ import com.coffee.nfc_gladys.PartieMetier.Light;
 import com.coffee.nfc_gladys.PartieMetier.ModuleSerializable;
 
 import com.coffee.nfc_gladys.PartieMetier.Music;
-import com.flask.colorpicker.ColorPickerView;
-import com.flask.colorpicker.OnColorSelectedListener;
-import com.flask.colorpicker.builder.ColorPickerClickListener;
-
-
-import com.flask.colorpicker.builder.ColorPickerClickListener;
-import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
-import com.flask.colorpicker.ColorPickerView;
-import com.flask.colorpicker.OnColorSelectedListener;
 
 /**
  * Created by s-setsuna-f on 12/04/16.
  */
-public class CreateAmbiance extends AppCompatActivity {
+public class CreateAmbianceActivity extends AppCompatActivity {
     boolean mWriteMode = false;
     private NfcAdapter mNfcAdapter;
     private PendingIntent mNfcPendingIntent;
@@ -101,7 +90,7 @@ public class CreateAmbiance extends AppCompatActivity {
     }
 
     private void setupListViewAdapter() {
-        adapter = new ItemCreateAmbianceAdapter(CreateAmbiance.this, R.layout.item_create_anbiance_listview, new ArrayList<ModuleSerializable>());
+        adapter = new ItemCreateAmbianceAdapter(CreateAmbianceActivity.this, R.layout.item_create_anbiance_listview, new ArrayList<ModuleSerializable>());
         ListView atomPaysListView = (ListView)findViewById(R.id.lViewAmbiance);
         atomPaysListView.setAdapter(adapter);
     }
@@ -229,12 +218,12 @@ public class CreateAmbiance extends AppCompatActivity {
 
                 msg = saveInDataBase();
 
-                mNfcAdapter = NfcAdapter.getDefaultAdapter(CreateAmbiance.this);
-                mNfcPendingIntent = PendingIntent.getActivity(CreateAmbiance.this, 0, new Intent(CreateAmbiance.this, CreateAmbiance.class).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
+                mNfcAdapter = NfcAdapter.getDefaultAdapter(CreateAmbianceActivity.this);
+                mNfcPendingIntent = PendingIntent.getActivity(CreateAmbianceActivity.this, 0, new Intent(CreateAmbianceActivity.this, CreateAmbianceActivity.class).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
 
                 enableTagWriteMode();
 
-                new AlertDialog.Builder(CreateAmbiance.this).setTitle("Tag").setIcon(R.drawable.nfc).setOnCancelListener(new DialogInterface.OnCancelListener() {
+                new AlertDialog.Builder(CreateAmbianceActivity.this).setTitle("Tag").setIcon(R.drawable.nfc).setOnCancelListener(new DialogInterface.OnCancelListener() {
                     @Override
                     public void onCancel(DialogInterface dialog) {
                         disableTagWriteMode();
@@ -246,7 +235,7 @@ public class CreateAmbiance extends AppCompatActivity {
     }
 
     private String saveInDataBase(){
-        NfcGladysDataBase db = new NfcGladysDataBase(CreateAmbiance.this);
+        NfcGladysDataBase db = new NfcGladysDataBase(CreateAmbianceActivity.this);
         String name=((EditText)findViewById(R.id.eTextNomAmbiance)).toString();
         String code="";
         for(ModuleSerializable s : modules){
@@ -280,7 +269,7 @@ public class CreateAmbiance extends AppCompatActivity {
 
             NdefMessage message = new NdefMessage(new NdefRecord[] { record });
             if (writeTag(message, detectedTag)) {
-                intent = new Intent(CreateAmbiance.this, MainActivity.class);
+                intent = new Intent(CreateAmbianceActivity.this, MainActivity.class);
                 startActivity(intent);
                 Toast.makeText(this, "Success: Wrote placeid to nfc tag", Toast.LENGTH_LONG).show();
             }

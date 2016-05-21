@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     public OnClickListener CreateAmbiance = new OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(MainActivity.this, CreateAmbiance.class);
+            Intent intent = new Intent(MainActivity.this, CreateAmbianceActivity.class);
             startActivity(intent);
         }
     };
@@ -81,8 +81,8 @@ public class MainActivity extends AppCompatActivity {
     public OnClickListener WriteTag = new OnClickListener() {
         @Override
         public void onClick(View v) {
-            //Intent intent = new Intent(MainActivity.this, WriteTag.class);
-            Intent intent = new Intent(MainActivity.this, ListAmbiance.class);
+            //Intent intent = new Intent(MainActivity.this, WriteTagActivity.class);
+            Intent intent = new Intent(MainActivity.this, ListAmbianceActivity.class);
             startActivity(intent);
         }
     };
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
     public OnClickListener ReadTag = new OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(MainActivity.this, ReadTag.class);
+            Intent intent = new Intent(MainActivity.this, ReadTagActivity.class);
             startActivity(intent);
         }
     };

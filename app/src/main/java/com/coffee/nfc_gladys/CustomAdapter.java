@@ -12,7 +12,7 @@ import android.widget.TextView;
 /**
  * Created by s-setsuna-f on 26/04/16.
  */
-public class custumAdapter extends BaseAdapter {
+public class CustomAdapter extends BaseAdapter {
     private Context context;
 
 
@@ -34,7 +34,7 @@ public class custumAdapter extends BaseAdapter {
         false};
 
 
-    public custumAdapter(Context context){ this.context = context; }
+    public CustomAdapter(Context context){ this.context = context; }
     @Override
     public int getCount() { return titles.length; }
 
