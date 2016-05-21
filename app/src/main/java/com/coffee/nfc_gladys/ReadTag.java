@@ -1,6 +1,7 @@
 package com.coffee.nfc_gladys;
 
 import android.app.Activity;
+import android.app.DownloadManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -11,9 +12,13 @@ import android.nfc.Tag;
 import android.nfc.tech.Ndef;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.coffee.nfc_gladys.PartieMetier.Requester;
+
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 
@@ -25,7 +30,7 @@ public class ReadTag extends Activity {
     private NfcAdapter mNfcAdapter;
     public static final String MIME_TEXT_PLAIN = "text/plain";
     public static final String TAG = "NfcDemo";
-
+    private Requester requester;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +51,7 @@ public class ReadTag extends Activity {
             Toast.makeText(this, R.string.explanation, Toast.LENGTH_LONG).show();
 
         }
+        requester = new Requester("192.168.1.15","75c8bbe32041fbe371c2ad21a0406b7da534220b");
 
         handleIntent(getIntent());
     }
@@ -184,23 +190,29 @@ public class ReadTag extends Activity {
 
         @Override
         protected void onPostExecute(String result) {
-            if (result != null) {
+            int SDK_INT = android.os.Build.VERSION.SDK_INT;
+            if (SDK_INT > 8)
+            {
+                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                        .permitAll().build();
+                StrictMode.setThreadPolicy(policy);
+                if (result != null) {
 
-                // ACTION A REALISER APRES LECTURE
-                //requester.send(code);
-                String[] frags;
-                frags = result.split(";");
+                    // ACTION A REALISER APRES LECTURE
+                    String[] frags;
+                    frags = result.split(";");
 
-                for (String f : frags
-                        ) {
-                    System.out.println("Read content: " + f);
+                    for (String f : frags
+                            ) {
+                        System.out.println("Read content: " + f);
 
-                    /*try {
-                        requester.send(f);
+                        try {
+                            requester.send(f);
 
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }*/
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
                 }
 
             }

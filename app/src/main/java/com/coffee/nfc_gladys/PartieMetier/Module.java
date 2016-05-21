@@ -45,8 +45,8 @@ public abstract class Module {
     public String getActionFromId(String id){
         for (Map.Entry<String, String> entry : this.actionsList.entrySet()) {
             //some modules have actions that are longer than 3.
-            //if(entry.getValue().substring(0,3).equals(id))
-            if(entry.getValue().equals(id))
+            if(entry.getValue().substring(0,3).equals(id))
+            //if(entry.getValue().equals(id))
                 return entry.getKey();
         }
         return null;

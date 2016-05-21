@@ -47,8 +47,9 @@ public class Requester {
 
 
     public String send(String command) throws IOException {
-        String[] frags = new String[2];
-        frags = command.split(".");
+        String[] frags;
+        frags = command.split("\\.");
+        System.out.println(frags[0]);
         System.out.println("http://"+this.ip+":1337"+this.modules.get(frags[0]).generateUrlFragment(frags[1])+"token="+this.token);
         Request request = new Request.Builder()
                 .url("http://"+this.ip+":1337"+this.modules.get(frags[0]).generateUrlFragment(frags[1])+"token="+this.token)

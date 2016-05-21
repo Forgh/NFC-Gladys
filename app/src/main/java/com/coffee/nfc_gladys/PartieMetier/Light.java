@@ -28,26 +28,31 @@ public class Light extends Module {
     }
 
     public String parseActionFragment(String fragment){
-        String[] split = new String[2];
-        split = fragment.split(":");
+
         String ret = "";
-        switch (split[0]){
-            case "004":
-                this.setColor(split[1]);
-                ret = split[1];
-                break;
-            case "005":
-                this.setBrightness(Integer.parseInt(split[1]));
-                ret = split[0];
-                break;
-            default: ret = fragment; break;
-        }
+        if(fragment.contains(":")){
+            String[] split;
+            split = fragment.split(":");
+            switch (split[0]){
+                case "004":
+                    this.setColor(split[1]);
+                    ret = split[0];
+                    break;
+                case "005":
+                    this.setBrightness(Integer.parseInt(split[1]));
+                    ret = split[0];
+                    break;
+                default: ret = split[0]; break;
+            }
+        }else ret = fragment;
+        System.out.println(ret);
         return ret;
     }
 
     public String generateUrlFragment(String idAction){
         String frag = "/hue/";
         String act = this.getActionFromId(parseActionFragment(idAction));
+        System.out.println(act);
         switch (act) {
             case "setColorLight":
                 frag += act + "?color=" + this.color + "&";
