@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         final NfcGladysDataBase db = new NfcGladysDataBase(getBaseContext());
         invalidCredentials = false;
         /* Si on n'a pas d'adresse ip dans la base de données */
-        db.deleteGladysInfo();
+        //db.deleteGladysInfo();
         if(db.getIpGladys()==null){
             //System.err.println("Je suis dans le if--------------------------->");
             final View loginView = getLayoutInflater().inflate(R.layout.authentication_layout, null);
