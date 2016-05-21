@@ -16,4 +16,17 @@ public class Alarm extends Module{
     public String generateUrlFragment(String idAction){
         return "/script/run?name=alarm.js&";
     }
+
+    public String getNameActionByCode(String code){
+        String []split=code.split(":");
+        String ret = "";
+        switch (split[0]){
+            case "001":
+                ret = "Stop alarm";
+                break;
+            default:
+                ret = code; break;
+        }
+        return ret;
+    }
 }

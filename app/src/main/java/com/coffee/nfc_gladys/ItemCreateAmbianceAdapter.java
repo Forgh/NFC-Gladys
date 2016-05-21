@@ -5,6 +5,7 @@ import com.coffee.nfc_gladys.PartieMetier.ModuleSerializable;
 import android.app.Activity;
 import android.content.Context;
 import android.text.Editable;
+import android.text.Html;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,7 +57,7 @@ public class ItemCreateAmbianceAdapter extends ArrayAdapter<ModuleSerializable> 
     }
 
     private void setupItem(ModuleHolder holder) {
-        holder.name.setText(holder.atomModulet.getCode());
+        holder.name.setText(Html.fromHtml(holder.atomModulet.getCode()));
     }
 
     private void setNameTextChangeListener(final ModuleHolder holder) {

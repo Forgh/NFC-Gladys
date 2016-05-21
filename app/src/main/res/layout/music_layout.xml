@@ -42,26 +42,26 @@
             android:layout_weight="1" />
     </LinearLayout>
 
-    <CheckBox
-        android:layout_width="wrap_content"
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="play"
-        android:id="@+id/checkBoxMusicPlay"
-        android:checked="false" />
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="stop"
-        android:checked="false"
-        android:id="@+id/checkBoxMusicStop" />
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Auto"
-        android:id="@+id/checkBoxMusicAuto"
-        android:checked="false" />
+        android:orientation="vertical">
+        <RadioButton android:id="@+id/radioMusicPlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="play"/>
+        <RadioButton android:id="@+id/radioMusicStop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="stop"/>
+        <RadioButton android:id="@+id/radioMusicPause"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="pause"/>
+    </RadioGroup>
 
     <LinearLayout
         android:orientation="horizontal"

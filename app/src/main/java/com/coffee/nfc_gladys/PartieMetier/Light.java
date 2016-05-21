@@ -66,4 +66,20 @@ public class Light extends Module {
         }
         return frag;
     }
+
+    public String getNameActionByCode(String code){
+        String []split=code.split(":");
+        String ret = "";
+        switch (split[0]){
+            case "004":
+                ret = "Color=#<font color=#"+split[1]+">"+split[1]+"</font>";
+                break;
+            case "005":
+                ret = "Brightness="+split[1];;
+                break;
+            default:
+                ret = code; break;
+        }
+        return ret;
+    }
 }

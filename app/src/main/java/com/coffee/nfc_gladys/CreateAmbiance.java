@@ -31,9 +31,12 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.coffee.nfc_gladys.PartieMetier.Alarm;
 import com.coffee.nfc_gladys.PartieMetier.Ambiance;
+import com.coffee.nfc_gladys.PartieMetier.Light;
 import com.coffee.nfc_gladys.PartieMetier.ModuleSerializable;
 
+import com.coffee.nfc_gladys.PartieMetier.Music;
 import com.flask.colorpicker.ColorPickerView;
 import com.flask.colorpicker.OnColorSelectedListener;
 import com.flask.colorpicker.builder.ColorPickerClickListener;
@@ -182,11 +185,40 @@ public class CreateAmbiance extends AppCompatActivity {
             if (data != null && data.getType() != null) {
                 codeModule = data.getType().toString();
                 ModuleSerializable ms = new ModuleSerializable(codeModule);
+                ModuleSerializable ms_translate = new ModuleSerializable(translate_code(codeModule));
                 modules.add(ms);
-                adapter.insert(ms, 0);
+                adapter.insert(ms_translate, 0);
             } else
                 System.err.println("Cannot save this module");
         }
+    }
+
+
+    private String translate_code(String code){
+        String strCode="";
+        String [] listeDeCode= code.split(";");
+        if(listeDeCode!=null)
+            for(String aCode : listeDeCode){
+                String [] c = aCode.split("[.]");
+
+                if(c!=null){
+                    Light L = new Light();
+                    if(L.getId().equals(c[0])) {
+                        strCode += L.getNameActionByCode(c[1])+" ";
+                    }else{
+                        Alarm A = new Alarm();
+                        if(A.getId().equals(c[0])) {
+                            strCode += A.getNameActionByCode(c[1])+" ";
+                        }else{
+                            Music M = new Music();
+                            if(M.getId().equals(c[0])) {
+                                strCode += M.getNameActionByCode(c[1])+" ";
+                            }
+                        }
+                    }
+                }
+            }
+        return strCode;
     }
 
     private void setupButtonSaveAndWriteOnTag() {

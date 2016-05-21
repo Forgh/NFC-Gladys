@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 
 import com.coffee.nfc_gladys.PartieMetier.Light;
@@ -20,12 +21,21 @@ public class MusicActivity extends AppCompatActivity {
     Button button_back;
     Button button_next;
     Music music;
+    String str_code;
+
+    RadioButton stop;
+    RadioButton play;
+    RadioButton pause;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.music_layout);
         spinner = (Spinner) findViewById(R.id.spinnerMusic);
+
+        stop  = (RadioButton) findViewById(R.id.radioMusicStop);
+        play  = (RadioButton) findViewById(R.id.radioMusicPlay);
+        pause = (RadioButton) findViewById(R.id.radioMusicPause);
 
         setupButton();
     }
@@ -41,8 +51,9 @@ public class MusicActivity extends AppCompatActivity {
     public View.OnClickListener BackToCreatAmbiance = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(MusicActivity.this, CreateAmbiance.class);
-            startActivity(intent);
+            //Intent intent = new Intent(MusicActivity.this, CreateAmbiance.class);
+            //startActivity(intent);
+            finish();
         }
     };
 
@@ -51,6 +62,12 @@ public class MusicActivity extends AppCompatActivity {
         public void onClick(View v) {
             /*il faudra mettre des parametres*/
             music = new Music();
+            str_code=music.outputToNFCTagString(
+                    (stop.isChecked()?
+                            "stop":
+                    (play.isChecked()?
+                            "play":
+                            "pause")))+";";
             finish();
         }
     };
@@ -58,9 +75,8 @@ public class MusicActivity extends AppCompatActivity {
     @Override
     public void finish() {
         Intent intent = new Intent();
-        //intent.setType(music.generateCode());
+        intent.setType(str_code);
         setResult(RESULT_OK, intent);
         super.finish();
-
     }
 }

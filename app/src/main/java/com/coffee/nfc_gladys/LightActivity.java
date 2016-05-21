@@ -35,7 +35,7 @@ public class LightActivity extends AppCompatActivity {
     Switch mySwitch;
     Button button_back;
     Button button_next;
-    String str_code="";
+    String str_code;
     Light light;
     int progressBar=80;
     String str_color="FFFFFFFF";
@@ -83,8 +83,7 @@ public class LightActivity extends AppCompatActivity {
     public View.OnClickListener BackToCreatAmbiance = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(LightActivity.this, CreateAmbiance.class);
-            startActivity(intent);
+           finish();
         }
     };
 
@@ -95,11 +94,11 @@ public class LightActivity extends AppCompatActivity {
             light = new Light();
 
             light.setColor(str_color);
-            str_code+=light.outputToNFCTagString("setColor")+";";
-            System.out.println("la couleur est de : "+str_color+"----------------------------------------");
+            str_code=light.outputToNFCTagString("setColor")+";";
+            //System.out.println("la couleur est de : "+str_color+"----------------------------------------");
 
             light.setBrightness(progressBar);
-            str_code+=light.outputToNFCTagString("setBrightness");
+            str_code+=light.outputToNFCTagString("setBrightness")+";";
             finish();
         }
     };

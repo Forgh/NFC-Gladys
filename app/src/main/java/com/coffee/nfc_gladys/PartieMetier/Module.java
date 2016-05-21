@@ -60,12 +60,4 @@ public abstract class Module {
         return "/"+this.name.toLowerCase()+"/"+this.parseActionFragment(idAction)+"?";
     }
 
-    /*METTRE UNE METHODE  POUR RETOURNER LE CODE du module */
-    /*METHODE A CREER*/
-    //Déjà fait ? C'est l'attribut id de cette classe.
-    public String generateCode(){
-        String string="CodeMODULE_X";
-        return string;
-    }
-
 }
