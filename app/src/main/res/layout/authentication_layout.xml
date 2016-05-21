@@ -21,7 +21,51 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/eTextIp"
+            android:inputType="text"
             android:layout_weight="1" />
-    </LinearLayout>
 
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="E-mail:"
+            android:id="@+id/tViewEmail" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/eTextEmail"
+            android:inputType="textEmailAddress"
+            android:layout_weight="1" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Password:"
+            android:id="@+id/tViewPassword" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/eTextPassword"
+            android:layout_weight="1"
+            android:inputType="textPassword"/>
+
+
+    </LinearLayout>
 </LinearLayout>

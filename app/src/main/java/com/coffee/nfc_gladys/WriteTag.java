@@ -16,6 +16,7 @@ import android.nfc.tech.Ndef;
 import android.nfc.tech.NdefFormatable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -33,7 +34,7 @@ import java.util.Locale;
  */
 
 
-public class WriteTag extends Activity{
+public class WriteTag extends AppCompatActivity {
 
     //public static final String MIME_TEXT_PLAIN = "text/plain";
     boolean mWriteMode = false;

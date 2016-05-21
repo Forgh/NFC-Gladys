@@ -20,6 +20,7 @@ import android.nfc.Tag;
 import android.nfc.tech.Ndef;
 import android.nfc.tech.NdefFormatable;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -46,7 +47,7 @@ import com.flask.colorpicker.OnColorSelectedListener;
 /**
  * Created by s-setsuna-f on 12/04/16.
  */
-public class CreateAmbiance extends Activity {
+public class CreateAmbiance extends AppCompatActivity {
     boolean mWriteMode = false;
     private NfcAdapter mNfcAdapter;
     private PendingIntent mNfcPendingIntent;

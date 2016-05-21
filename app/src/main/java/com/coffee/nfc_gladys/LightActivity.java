@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +28,7 @@ import org.w3c.dom.Text;
 /**
  * Created by s-setsuna-f on 25/04/16.
  */
-public class LightActivity extends Activity {
+public class LightActivity extends AppCompatActivity {
     //EditText eText_color;
     SeekBar seekBar;
     CheckBox checkBox_auto;

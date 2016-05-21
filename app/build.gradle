@@ -25,5 +25,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.squareup.okhttp3:okhttp:3.2.0'
     compile 'com.github.QuadFlask:colorpicker:0.0.10'
-
+    compile "com.squareup.okhttp3:okhttp-urlconnection:3.0.0-RC1"
+    compile 'com.github.franmontiel:PersistentCookieJar:v0.9.3'
 }

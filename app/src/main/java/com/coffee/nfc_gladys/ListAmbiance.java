@@ -19,6 +19,7 @@ import android.nfc.Tag;
 import android.nfc.tech.Ndef;
 import android.nfc.tech.NdefFormatable;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.SparseBooleanArray;
 import android.view.Menu;
 import android.view.View;
@@ -30,7 +31,7 @@ import android.widget.Toast;
 import com.coffee.nfc_gladys.PartieMetier.Ambiance;
 import com.coffee.nfc_gladys.PartieMetier.ModuleSerializable;
 
-public class ListAmbiance extends Activity {
+public class ListAmbiance extends AppCompatActivity {
     boolean mWriteMode = false;
     private NfcAdapter mNfcAdapter;
     private PendingIntent mNfcPendingIntent;

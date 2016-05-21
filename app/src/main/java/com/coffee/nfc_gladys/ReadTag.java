@@ -13,6 +13,7 @@ import android.nfc.tech.Ndef;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -26,7 +27,7 @@ import java.util.Arrays;
 /**
  * Created by s-setsuna-f on 12/04/16.
  */
-public class ReadTag extends Activity {
+public class ReadTag extends AppCompatActivity {
     private NfcAdapter mNfcAdapter;
     public static final String MIME_TEXT_PLAIN = "text/plain";
     public static final String TAG = "NfcDemo";
@@ -51,7 +52,8 @@ public class ReadTag extends Activity {
             Toast.makeText(this, R.string.explanation, Toast.LENGTH_LONG).show();
 
         }
-        requester = new Requester("192.168.1.15","75c8bbe32041fbe371c2ad21a0406b7da534220b");
+        NfcGladysDataBase db = new NfcGladysDataBase(getBaseContext());
+        requester = new Requester(db.getIpGladys(),db.getTokenGladys());
 
         handleIntent(getIntent());
     }
@@ -211,6 +213,7 @@ public class ReadTag extends Activity {
 
                         } catch (IOException e) {
                             e.printStackTrace();
+
                         }
                     }
                 }
