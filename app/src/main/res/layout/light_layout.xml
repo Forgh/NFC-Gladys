@@ -18,7 +18,7 @@
             android:id="@+id/buttonSelectColor" />
 
 
-    <!--
+<!--
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
             android:text="TurnOff"
             android:checked="false"
             android:id="@+id/checkBoxLightTurnOff" />
-    -->
+-->
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -54,7 +54,7 @@
                 android:indeterminate="@bool/abc_action_bar_embed_tabs" />
         </LinearLayout>
 
-<!--
+
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:checked="@bool/abc_action_bar_embed_tabs" />
--->
+
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"

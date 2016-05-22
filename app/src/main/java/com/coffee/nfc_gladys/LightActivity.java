@@ -52,8 +52,8 @@ public class LightActivity extends AppCompatActivity {
         setContentView(R.layout.light_layout);
 
         seekBar = (SeekBar) findViewById(R.id.seekBarLight);
-        //mySwitch = (Switch) findViewById(R.id.switch_light);
-        //checkBox_auto = (CheckBox) findViewById(R.id.checkBoxLightAuto);
+        mySwitch = (Switch) findViewById(R.id.switch_light);
+        checkBox_auto = (CheckBox) findViewById(R.id.checkBoxLightAuto);
 
         button_back = (Button) findViewById(R.id.buttonLightBackCreateAmbiance);
         button_next = (Button) findViewById(R.id.buttonLightNextCreateAmbiance);
