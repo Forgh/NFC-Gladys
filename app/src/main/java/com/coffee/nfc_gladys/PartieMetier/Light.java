@@ -56,7 +56,7 @@ public class Light extends Module {
         String act = this.getActionFromId(parseActionFragment(idAction));
         System.out.println(act);
         switch (act) {
-            case "setColorLight":
+            case "setColor":
                 frag += act + "?color=" + this.color + "&";
                 break;
             case "setBrightness":

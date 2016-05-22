@@ -53,7 +53,7 @@ public abstract class Module {
     }
 
     public String parseActionFragment(String fragment){
-        return fragment;
+        return getActionFromId(fragment);
     }
 
     public String generateUrlFragment(String idAction){

@@ -64,4 +64,5 @@
     <string name="SelectModule">Choisissez un module</string>
     <string name="StopAlarm">Arrêter le réveil</string>
     <string name="SuccessWrote">Succés : Ambiance écrite sur le tag NFC</string>
+    <string name="WriteTag">Ecrire sur le tag</string>
 </resources>
