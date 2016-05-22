@@ -53,7 +53,7 @@ public class AlarmActivity extends AppCompatActivity {
         public void onClick(View v) {
             /*il faudra mettre des parametres*/
             alarm = new Alarm();
-            str_code=alarm.outputToNFCTagString((stop.isChecked()?""+R.string.AlarmStop: "playAlarm"))+";";
+            str_code=alarm.outputToNFCTagString((stop.isChecked()?"stopAlarm": "playAlarm"))+";";
             finish();
         }
     };

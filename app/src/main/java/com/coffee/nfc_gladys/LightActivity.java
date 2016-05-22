@@ -121,14 +121,14 @@ public class LightActivity extends AppCompatActivity {
 
                 ColorPickerDialogBuilder
                         .with(context)
-                        .setTitle(""+R.string.ChooseColor)
+                        .setTitle(getResources().getString(R.string.ChooseColor))
                         .initialColor(currentBackgroundColor)
                         .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
                         .density(12)
                         .setOnColorSelectedListener(new OnColorSelectedListener() {
                             @Override
                             public void onColorSelected(int selectedColor) {
-                                toast(R.string.OnColorSelected+": 0x" + Integer.toHexString(selectedColor));
+                                toast(getResources().getString(R.string.OnColorSelected)+": 0x" + Integer.toHexString(selectedColor));
                                 str_color=""+Integer.toHexString(selectedColor).toUpperCase();
                             }
                         })
@@ -143,7 +143,7 @@ public class LightActivity extends AppCompatActivity {
                                         if (color == null)
                                             continue;
                                         if (sb == null)
-                                            sb = new StringBuilder(R.string.ColorList+":");
+                                            sb = new StringBuilder(getResources().getString(R.string.ColorList)+":");
                                         sb.append("\r\n#" + Integer.toHexString(color).toUpperCase());
                                     }
 
@@ -152,7 +152,7 @@ public class LightActivity extends AppCompatActivity {
                                 }
                             }
                         })
-                        .setNegativeButton(""+R.string.Cancel, new DialogInterface.OnClickListener() {
+                        .setNegativeButton(getResources().getString(R.string.Cancel), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                             }

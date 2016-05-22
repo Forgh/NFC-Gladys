@@ -46,6 +46,7 @@ public class CreateAmbianceActivity extends AppCompatActivity {
     private String msg;
     private ItemCreateAmbianceAdapter adapter;
     private ArrayList<ModuleSerializable> modules;
+    private EditText name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,8 @@ public class CreateAmbianceActivity extends AppCompatActivity {
         setContentView(R.layout.creer_ambiance);
 
         modules = new ArrayList<>();
+
+        setupTitle();
 
         setupListViewAdapter();
 
@@ -89,6 +92,10 @@ public class CreateAmbianceActivity extends AppCompatActivity {
         adapter.remove(itemToRemove);
     }
 
+    private void setupTitle(){
+        name = (EditText)findViewById(R.id.eTextNomAmbiance);
+    }
+
     private void setupListViewAdapter() {
         adapter = new ItemCreateAmbianceAdapter(CreateAmbianceActivity.this, R.layout.item_create_anbiance_listview, new ArrayList<ModuleSerializable>());
         ListView atomPaysListView = (ListView)findViewById(R.id.lViewAmbiance);
@@ -108,7 +115,16 @@ public class CreateAmbianceActivity extends AppCompatActivity {
         findViewById(R.id.buttonSaveAndQuit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveInDataBase();
+                String msg = saveInDataBase();
+                if(msg==null) {
+                    new AlertDialog.Builder(CreateAmbianceActivity.this).setTitle(getResources().getText(R.string.enterNameTagAndModule)).setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    }).create().show();
+                    return;
+                }
                 Intent intent = new Intent(getBaseContext(), MainActivity.class);
                 startActivity(intent);
             }
@@ -130,10 +146,10 @@ public class CreateAmbianceActivity extends AppCompatActivity {
     private void displayListModuleDialog() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(""+R.string.SelectModule);
+        builder.setTitle(getResources().getString(R.string.SelectModule));
 
         ListView modeList = new ListView(this);
-        String[] stringArray = new String[] { ""+R.string.Light, ""+R.string.Music, ""+R.string.Alarm };
+        String[] stringArray = new String[] { getResources().getString(R.string.Light), getResources().getString(R.string.Music), getResources().getString(R.string.Alarm) };
         ArrayAdapter<String> modeAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, stringArray);
         modeList.setAdapter(modeAdapter);
 
@@ -178,7 +194,7 @@ public class CreateAmbianceActivity extends AppCompatActivity {
                 modules.add(ms);
                 adapter.insert(ms_translate, 0);
             } else
-                System.err.println(""+R.string.CreateAmbiancce_CannotSaveModule);
+                System.err.println(getResources().getString(R.string.CreateAmbiancce_CannotSaveModule));
         }
     }
 
@@ -193,15 +209,15 @@ public class CreateAmbianceActivity extends AppCompatActivity {
                 if(c!=null){
                     Light L = new Light();
                     if(L.getId().equals(c[0])) {
-                        strCode += L.getNameActionByCode(c[1])+" ";
+                        strCode += L.getNameActionByCode(c[1], this)+" ";
                     }else{
                         Alarm A = new Alarm();
                         if(A.getId().equals(c[0])) {
-                            strCode += A.getNameActionByCode(c[1])+" ";
+                            strCode += A.getNameActionByCode(c[1], this)+" ";
                         }else{
                             Music M = new Music();
                             if(M.getId().equals(c[0])) {
-                                strCode += M.getNameActionByCode(c[1])+" ";
+                                strCode += M.getNameActionByCode(c[1], this)+" ";
                             }
                         }
                     }
@@ -217,7 +233,15 @@ public class CreateAmbianceActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 msg = saveInDataBase();
+                if(msg==null) {
+                    new AlertDialog.Builder(CreateAmbianceActivity.this).setTitle(getResources().getText(R.string.enterNameTagAndModule)).setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
 
+                        }
+                    }).create().show();
+                    return;
+                }
                 mNfcAdapter = NfcAdapter.getDefaultAdapter(CreateAmbianceActivity.this);
                 mNfcPendingIntent = PendingIntent.getActivity(CreateAmbianceActivity.this, 0, new Intent(CreateAmbianceActivity.this, CreateAmbianceActivity.class).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
 
@@ -236,13 +260,23 @@ public class CreateAmbianceActivity extends AppCompatActivity {
 
     private String saveInDataBase(){
         NfcGladysDataBase db = new NfcGladysDataBase(CreateAmbianceActivity.this);
-        String name=((EditText)findViewById(R.id.eTextNomAmbiance)).toString();
-        String code="";
-        for(ModuleSerializable s : modules){
-            code+=s.getCode().toString();
+        name=(EditText)findViewById(R.id.eTextNomAmbiance);
+        String code = null;
+
+        if(name==null || name.getText().toString()=="") {
+            /*new AlertDialog.Builder(CreateAmbianceActivity.this).setTitle("Enter a name and a module for this ambiance").setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            }).create().show();*/
+        }else {
+            for (ModuleSerializable s : modules) {
+                code += s.getCode().toString();
+            }
+            Ambiance ambiance = new Ambiance(name.getText().toString(), code);
+            db.insertAmbiance(ambiance);
         }
-        Ambiance ambiance = new Ambiance(name, code);
-        db.insertAmbiance(ambiance);
         return code;
     }
 
@@ -271,7 +305,7 @@ public class CreateAmbianceActivity extends AppCompatActivity {
             if (writeTag(message, detectedTag)) {
                 intent = new Intent(CreateAmbianceActivity.this, MainActivity.class);
                 startActivity(intent);
-                Toast.makeText(this, ""+R.string.SuccessWrote, Toast.LENGTH_LONG).show();
+                Toast.makeText(this, getResources().getString(R.string.SuccessWrote), Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -297,11 +331,11 @@ public class CreateAmbianceActivity extends AppCompatActivity {
             if (ndef != null) {
                 ndef.connect();
                 if (!ndef.isWritable()) {
-                    Toast.makeText(getApplicationContext(), ""+R.string.ErrTagNotWritable, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.ErrTagNotWritable), Toast.LENGTH_SHORT).show();
                     return false;
                 }
                 if (ndef.getMaxSize() < size) {
-                    Toast.makeText(getApplicationContext(), ""+R.string.ErrTagTooSmall, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.ErrTagTooSmall), Toast.LENGTH_SHORT).show();
                     return false;
                 }
                 ndef.writeNdefMessage(message);

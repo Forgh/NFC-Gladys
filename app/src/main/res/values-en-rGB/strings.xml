@@ -66,5 +66,6 @@
     <string name="volume">Volume</string>
     <string name="write">Write</string>
     <string name="OnColorSelected" translatable="false">onColorSelected</string>
+    <string name="enterNameTagAndModule" >Enter a name and a module for this ambiance</string>
 
 </resources>

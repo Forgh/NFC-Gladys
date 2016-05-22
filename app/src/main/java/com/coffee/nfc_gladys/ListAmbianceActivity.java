@@ -58,7 +58,7 @@ public class ListAmbianceActivity extends AppCompatActivity {
             final SparseBooleanArray checkedItems = lvView.getCheckedItemPositions();
 
             if (checkedItems == null) {
-                Toast.makeText(ListAmbianceActivity.this, R.string.list_ambience_unselected, Toast.LENGTH_LONG).show();
+                Toast.makeText(ListAmbianceActivity.this, getResources().getString(R.string.list_ambience_unselected), Toast.LENGTH_LONG).show();
                 //return;
             }
             //boolean isFirstSelected = true;
@@ -98,7 +98,8 @@ public class ListAmbianceActivity extends AppCompatActivity {
         if(dataAmbiance!=null)
             for(Ambiance a : dataAmbiance)
                 if(a.getCode()!=null)
-                    data.add(a.getCode());
+                    data.add(a.getName());
+                    //data.add(a.getCode());
     }
 
     private void enableTagWriteMode() {
@@ -125,7 +126,7 @@ public class ListAmbianceActivity extends AppCompatActivity {
             if (writeTag(message, detectedTag)) {
                 intent = new Intent(ListAmbianceActivity.this, MainActivity.class);
                 startActivity(intent);
-                Toast.makeText(this, R.string.success_write_tag, Toast.LENGTH_LONG).show();
+                Toast.makeText(this, getResources().getString(R.string.success_write_tag), Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -151,11 +152,11 @@ public class ListAmbianceActivity extends AppCompatActivity {
             if (ndef != null) {
                 ndef.connect();
                 if (!ndef.isWritable()) {
-                    Toast.makeText(getApplicationContext(), R.string.error_unwritable_tag, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.error_unwritable_tag), Toast.LENGTH_SHORT).show();
                     return false;
                 }
                 if (ndef.getMaxSize() < size) {
-                    Toast.makeText(getApplicationContext(), R.string.error_small_tag, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.error_small_tag), Toast.LENGTH_SHORT).show();
                     return false;
                 }
                 ndef.writeNdefMessage(message);

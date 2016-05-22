@@ -108,14 +108,14 @@ public class MainActivity extends AppCompatActivity {
             case R.id.settingsItem:
                 new AlertDialog.Builder(this).setView(getLayoutInflater().inflate(R.layout.authentication_layout, null))
                         // Add action buttons
-                        .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                        .setPositiveButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int id) {
                             /*Ici on sauvegarde dans la base de donnée*/
 
                             }
                         })
-                        .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                        .setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                             }
                         }).create().show();

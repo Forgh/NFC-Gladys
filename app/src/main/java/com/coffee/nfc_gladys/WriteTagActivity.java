@@ -71,7 +71,7 @@ public class WriteTagActivity extends AppCompatActivity {
 
             NdefMessage message = new NdefMessage(new NdefRecord[] { record });
             if (writeTag(message, detectedTag)) {
-                Toast.makeText(this, R.string.success_write_tag, Toast.LENGTH_LONG).show();
+                Toast.makeText(this, getResources().getString(R.string.success_write_tag), Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -97,11 +97,11 @@ public class WriteTagActivity extends AppCompatActivity {
             if (ndef != null) {
                 ndef.connect();
                 if (!ndef.isWritable()) {
-                    Toast.makeText(getApplicationContext(), R.string.error_unwritable_tag, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.error_unwritable_tag), Toast.LENGTH_SHORT).show();
                     return false;
                 }
                 if (ndef.getMaxSize() < size) {
-                    Toast.makeText(getApplicationContext(), R.string.error_small_tag, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.error_small_tag), Toast.LENGTH_SHORT).show();
                     return false;
                 }
                 ndef.writeNdefMessage(message);

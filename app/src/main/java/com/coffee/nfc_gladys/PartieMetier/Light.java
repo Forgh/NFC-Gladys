@@ -2,6 +2,55 @@ package com.coffee.nfc_gladys.PartieMetier;
 
 import com.coffee.nfc_gladys.R;
 
+
+
+
+
+
+
+
+
+
+
+
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.Locale;
+
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.res.Resources;
+import android.nfc.NdefMessage;
+import android.nfc.NdefRecord;
+import android.nfc.NfcAdapter;
+import android.nfc.Tag;
+import android.nfc.tech.Ndef;
+import android.nfc.tech.NdefFormatable;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import com.coffee.nfc_gladys.PartieMetier.Alarm;
+import com.coffee.nfc_gladys.PartieMetier.Ambiance;
+import com.coffee.nfc_gladys.PartieMetier.Light;
+import com.coffee.nfc_gladys.PartieMetier.ModuleSerializable;
+
+import com.coffee.nfc_gladys.PartieMetier.Music;
+
 /**
  * Created by ghost_000 on 25/04/2016.
  */
@@ -69,15 +118,15 @@ public class Light extends Module {
         return frag;
     }
 
-    public String getNameActionByCode(String code){
+    public String getNameActionByCode(String code, Context context){
         String []split=code.split(":");
         String ret = "";
         switch (split[0]){
             case "004":
-                ret = R.string.LightColor+"=#<font color=#"+split[1]+">"+split[1]+"</font>";
+                ret = context.getResources().getString(R.string.LightColor)+"=#<font color=#"+split[1]+">"+split[1]+"</font>";
                 break;
             case "005":
-                ret =  R.string.LightBrightness+"="+split[1];;
+                ret =  context.getResources().getString(R.string.LightBrightness)+"="+split[1];;
                 break;
             default:
                 ret = code; break;

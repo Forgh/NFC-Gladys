@@ -1,5 +1,7 @@
 package com.coffee.nfc_gladys.PartieMetier;
 
+import android.content.Context;
+
 import com.coffee.nfc_gladys.R;
 
 /**
@@ -19,12 +21,12 @@ public class Alarm extends Module{
         return "/script/run?name=alarm.js&";
     }
 
-    public String getNameActionByCode(String code){
+    public String getNameActionByCode(String code, Context context){
         String []split=code.split(":");
         String ret = "";
         switch (split[0]){
             case "001":
-                ret = ""+R.string.StopAlarm;
+                ret = context.getResources().getString(R.string.StopAlarm);
                 break;
             default:
                 ret = code; break;

@@ -1,5 +1,7 @@
 package com.coffee.nfc_gladys.PartieMetier;
 
+import android.content.Context;
+
 import com.coffee.nfc_gladys.R;
 
 /**
@@ -20,18 +22,18 @@ public class Music extends Module{
 
     public void stop(){};
 
-    public String getNameActionByCode(String code){
+    public String getNameActionByCode(String code, Context context){
         String []split=code.split(":");
         String ret = "";
         switch (split[0]){
             case "001":
-                ret = ""+ R.string.MusicPlay;
+                ret = context.getResources().getString(R.string.MusicPlay);
                 break;
             case "002":
-                ret = ""+ R.string.MusicPause;;
+                ret = context.getResources().getString(R.string.MusicPause);;
                 break;
             case "003":
-                ret = ""+ R.string.MusicStop;
+                ret = context.getResources().getString(R.string.MusicStop);
                 break;
             default:
                 ret = code; break;

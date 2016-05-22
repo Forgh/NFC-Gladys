@@ -40,16 +40,16 @@ public class ReadTagActivity extends AppCompatActivity {
 
         if (mNfcAdapter == null) {
             // Stop here, we definitely need NFC
-            Toast.makeText(this, R.string.unsupported_nfc, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getResources().getString(R.string.unsupported_nfc), Toast.LENGTH_LONG).show();
             finish();
             return;
 
         }
 
         if (!mNfcAdapter.isEnabled()) {
-            Toast.makeText(this, R.string.nfc_disabled, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getResources().getString(R.string.nfc_disabled), Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(this, R.string.tag_detected, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getResources().getString(R.string.tag_detected), Toast.LENGTH_LONG).show();
 
         }
         NfcGladysDataBase db = new NfcGladysDataBase(getBaseContext());
