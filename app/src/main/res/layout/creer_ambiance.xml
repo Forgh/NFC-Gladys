@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Nom :"
+            android:text="@string/name"
             android:id="@+id/tViewNomAmbiance" />
 
         <EditText
@@ -72,7 +72,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="back"
+            android:text="@string/back"
             android:layout_gravity="bottom"
             android:layout_weight="0"
 
@@ -82,7 +82,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save and Quit"
+            android:text="@string/save_and_quit"
             android:layout_gravity="bottom"
             android:layout_weight="01"
             android:id="@+id/buttonSaveAndQuit"
@@ -91,7 +91,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Write"
+            android:text="@string/write"
             android:layout_gravity="bottom"
             android:layout_weight="0"
 

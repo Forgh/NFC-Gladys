@@ -14,7 +14,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Select Color"
+            android:text="@string/select_color"
             android:id="@+id/buttonSelectColor" />
 
 
@@ -45,7 +45,7 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Auto"
+            android:text="@string/toggle"
             android:id="@+id/checkBoxLightAuto"
             android:checked="false" />
 
@@ -67,14 +67,14 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="back"
+                android:text="@string/back"
                 android:layout_weight="1"
                 android:id="@+id/buttonLightBackCreateAmbiance" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="next"
+                android:text="@string/next"
                 android:layout_weight="1"
                 android:id="@+id/buttonLightNextCreateAmbiance" />
         </LinearLayout>

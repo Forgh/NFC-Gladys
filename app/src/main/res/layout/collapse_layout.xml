@@ -12,7 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/collapse_title"
-            android:text="Row title" />
+            android:text="@string/row_title" />
     </LinearLayout>
 
     <LinearLayout
@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Song:"
+                android:text="@string/song"
                 android:id="@+id/tViewAlarmSong" />
             <Spinner
                 android:id="@+id/spinnerAlarm"
@@ -47,7 +47,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Time"
+                android:text="@string/time"
                 android:id="@+id/checkBoxAlarmHeure"
                 android:checked="false" />
 
@@ -61,14 +61,14 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="play"
+            android:text="@string/play"
             android:id="@+id/checkBoxAlarmPlay"
             android:checked="false" />
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="stop"
+            android:text="@string/stop"
             android:checked="false"
             android:id="@+id/checkBoxAlarmStop" />
 
@@ -81,14 +81,14 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="back"
+                android:text="@string/back"
                 android:layout_weight="1"
                 android:id="@+id/buttonAlarmBackCreateAmbiance" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="newt"
+                android:text="@string/next"
                 android:layout_weight="1"
                 android:id="@+id/buttonAlarmNextCreateAmbiance" />
         </LinearLayout>

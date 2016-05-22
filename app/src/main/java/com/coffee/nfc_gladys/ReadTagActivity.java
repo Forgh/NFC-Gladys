@@ -30,7 +30,7 @@ import java.util.Arrays;
 public class ReadTagActivity extends AppCompatActivity {
     private NfcAdapter mNfcAdapter;
     public static final String MIME_TEXT_PLAIN = "text/plain";
-    public static final String TAG = "NfcDemo";
+    public static final String TAG = "NfcGladys";
     private Requester requester;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +49,7 @@ public class ReadTagActivity extends AppCompatActivity {
         if (!mNfcAdapter.isEnabled()) {
             Toast.makeText(this, R.string.nfc_disabled, Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(this, R.string.explanation, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.tag_detected, Toast.LENGTH_LONG).show();
 
         }
         NfcGladysDataBase db = new NfcGladysDataBase(getBaseContext());

@@ -13,7 +13,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="music tracks:"
+            android:text="@string/music_tracks"
             android:id="@+id/tViewMusicTracks" />
         <Spinner
             android:id="@+id/spinnerMusic"
@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Volume:"
+            android:text="@string/volume"
             android:id="@+id/tViewVolume" />
 
         <SeekBar
@@ -50,17 +50,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="play"/>
+            android:text="@string/play"/>
         <RadioButton android:id="@+id/radioMusicStop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="stop"/>
+            android:text="@string/stop"/>
         <RadioButton android:id="@+id/radioMusicPause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="pause"/>
+            android:text="@string/pause"/>
     </RadioGroup>
 
     <LinearLayout
@@ -71,14 +71,14 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="back"
+            android:text="@string/back"
             android:layout_weight="1"
             android:id="@+id/buttonMusicBackCreateAmbiance" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="newt"
+            android:text="@string/next"
             android:layout_weight="1"
             android:id="@+id/buttonMusicNextCreateAmbiance" />
     </LinearLayout>
