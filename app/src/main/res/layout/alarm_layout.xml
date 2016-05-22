@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
+   <!-- <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -37,17 +37,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/timePicker" />
-    </LinearLayout>
+    </LinearLayout>-->
 
     <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <RadioButton android:id="@+id/radioAlarmPlay"
+        <!--<RadioButton android:id="@+id/radioAlarmPlay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/AlarmPlay"
-            android:checked="false"/>
+            android:checked="false"/>-->
         <RadioButton android:id="@+id/radioAlarmStop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

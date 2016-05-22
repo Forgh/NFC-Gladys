@@ -35,6 +35,7 @@ public class ListAmbianceActivity extends AppCompatActivity {
     private String msg;
 
     private List<String> data;
+    private List<String> data_name;
     SingleListAdapter adapter;
     ListView lvView;
     @Override
@@ -42,8 +43,9 @@ public class ListAmbianceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_ambiance);
         data = new ArrayList<String>();
+        data_name = new ArrayList<String>();
         fillData();
-        adapter = new SingleListAdapter(this, data);
+        adapter = new SingleListAdapter(this, data_name);
         lvView = (ListView) findViewById(R.id.list);
         lvView.setAdapter(adapter);
 
@@ -97,9 +99,10 @@ public class ListAmbianceActivity extends AppCompatActivity {
         ArrayList<Ambiance> dataAmbiance = db.getAllAmbiance();
         if(dataAmbiance!=null)
             for(Ambiance a : dataAmbiance)
-                if(a.getCode()!=null)
-                    data.add(a.getName());
-                    //data.add(a.getCode());
+                if(a.getCode()!=null) {
+                    data.add(a.getCode());
+                    data_name.add(a.getName());
+                }
     }
 
     private void enableTagWriteMode() {

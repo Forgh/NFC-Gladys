@@ -33,15 +33,28 @@
             android:checked="false"
             android:id="@+id/checkBoxLightTurnOff" />
     -->
-
-        <SeekBar
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/seekBarLight"
-            android:progress="80"
-            android:max="100"
-            android:indeterminate="@bool/abc_action_bar_embed_tabs" />
+            android:layout_height="wrap_content">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/LightBrightness"
+                android:id="@+id/tViewBrightness" />
+
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/seekBarLight"
+                android:progress="80"
+                android:max="100"
+                android:indeterminate="@bool/abc_action_bar_embed_tabs" />
+        </LinearLayout>
+
+<!--
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,7 +71,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:checked="@bool/abc_action_bar_embed_tabs" />
-
+-->
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"

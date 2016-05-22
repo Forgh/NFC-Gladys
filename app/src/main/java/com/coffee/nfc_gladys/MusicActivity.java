@@ -31,7 +31,7 @@ public class MusicActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.music_layout);
-        spinner = (Spinner) findViewById(R.id.spinnerMusic);
+        //spinner = (Spinner) findViewById(R.id.spinnerMusic);
 
         stop  = (RadioButton) findViewById(R.id.radioMusicStop);
         play  = (RadioButton) findViewById(R.id.radioMusicPlay);
