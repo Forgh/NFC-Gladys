@@ -233,7 +233,7 @@ public class CreateAmbianceActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 msg = saveInDataBase();
-                if(msg==null) {
+                /*if(msg==null) {
                     new AlertDialog.Builder(CreateAmbianceActivity.this).setTitle(getResources().getText(R.string.enterNameTagAndModule)).setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -241,7 +241,7 @@ public class CreateAmbianceActivity extends AppCompatActivity {
                         }
                     }).create().show();
                     return;
-                }
+                }*/
                 mNfcAdapter = NfcAdapter.getDefaultAdapter(CreateAmbianceActivity.this);
                 mNfcPendingIntent = PendingIntent.getActivity(CreateAmbianceActivity.this, 0, new Intent(CreateAmbianceActivity.this, CreateAmbianceActivity.class).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
 
@@ -261,22 +261,22 @@ public class CreateAmbianceActivity extends AppCompatActivity {
     private String saveInDataBase(){
         NfcGladysDataBase db = new NfcGladysDataBase(CreateAmbianceActivity.this);
         name=(EditText)findViewById(R.id.eTextNomAmbiance);
-        String code = null;
+        String code ="";// null;
 
-        if(name==null || name.getText().toString()=="") {
+        //if(name==null || name.getText().toString()=="") {
             /*new AlertDialog.Builder(CreateAmbianceActivity.this).setTitle("Enter a name and a module for this ambiance").setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
 
                 }
             }).create().show();*/
-        }else {
+       // }else {
             for (ModuleSerializable s : modules) {
                 code += s.getCode().toString();
             }
             Ambiance ambiance = new Ambiance(name.getText().toString(), code);
             db.insertAmbiance(ambiance);
-        }
+        //}
         return code;
     }
 
